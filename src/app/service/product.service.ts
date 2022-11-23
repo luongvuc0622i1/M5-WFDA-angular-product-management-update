@@ -38,10 +38,24 @@ export class ProductService {
     }
   ]
   constructor() { }
+  //show list
   getAll() {
     return this.products;
   }
+  //create
   saveProduct(product: any) {
     this.products.push(product);
   }
+  //edit
+  findById(id: number) {
+    return this.products.find(product => product.id === id);
+  }
+  updateProduct(id: number, product: Product) {
+    for (let i = 0; i < this.products.length; i++) {
+      if (this.products[i].id === id) {
+        this.products[i] = product;
+      }
+    }
+  }
+  //delete
 }
