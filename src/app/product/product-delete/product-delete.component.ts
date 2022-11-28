@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {ProductService} from "../service/product.service";
+import {ProductService} from "../../service/product.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {FormGroup} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-product-delete',
@@ -23,8 +23,14 @@ export class ProductDeleteComponent {
       this.id = +paramMap.get('id');
       const product = this.getProduct(this.id);
       this.productForm = new FormGroup({
-// @ts-ignore
-        id: new FormControl(product.id), name: new FormControl(product.name), price: new FormControl(product.price), description: new FormControl(product.description),
+        // @ts-ignore
+        id: new FormControl(product.id),
+        // @ts-ignore
+        name: new FormControl(product.name),
+        // @ts-ignore
+        price: new FormControl(product.price),
+        // @ts-ignore
+        description: new FormControl(product.description),
       });
     });
   }
